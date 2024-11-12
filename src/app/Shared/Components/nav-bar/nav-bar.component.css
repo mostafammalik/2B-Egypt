@@ -1,0 +1,379 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.responsivediv {
+  background-image: url("/img/bank.jpg");
+  height: 70px;
+  width: 100%;
+
+  /* background-color: #333; */
+}
+
+#smallnav {
+  background-color: #f0f0ed;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 10%;
+  padding-left: 8%;
+  /* position: sticky;
+  top: 0;
+  overflow: hidden; */
+}
+#smallnav > div > div a {
+  font-size: 14px !important;
+  font-family: "Cairo" !important;
+  color: #6d6d6c !important;
+}
+#responsiveSearchBarsCart {
+  display: flex;
+  flex-direction: row;
+  /* background-color: blue; */
+  justify-content: end;
+  width: 45%;
+}
+#parentOfNav {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 999;
+}
+.sticky {
+  background-color: black;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 999;
+  /* justify-content: space-around; */
+}
+nav {
+  background-color: black;
+
+  /* width: 100%; */
+
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+nav::after {
+  content: "";
+  margin: 0; /* Margin when sticky */
+}
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+nav li {
+  height: 50px;
+}
+nav a {
+  font-weight: bold;
+  /* height: 100%; */
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+nav a:hover {
+  transition: 1s;
+  color: orangered;
+}
+.cart-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-icon {
+  display: block;
+  width: 35px;
+}
+
+.item-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #f37021;
+  color: black;
+  border-radius: 50%;
+  padding: 5px 5px;
+  margin-right: 29px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  line-height: 10px;
+}
+
+
+.item-count2 {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  background-color: #f37021;
+  color: black;
+  border-radius: 50%;
+  padding: 5px 5px;
+  margin-right: 29px;
+  margin-bottom: 5px;
+  /* margin-top: 10px; */
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  line-height: 10px;
+}
+#img2b {
+  margin-left: 30px;
+  max-height: 100%;
+  max-width: 100%;
+}
+#search {
+  /* width: 500px; */
+  width: 100%;
+  height: 45px;
+  border-radius: 7px;
+  box-shadow: none;
+  border-right: 0px;
+  padding-left: 8px;
+}
+#btnandsearch {
+  margin: 15px;
+}
+.headsetandlocation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+#bigDivForNavbar {
+  /* background-color: rebeccapurple; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 7%;
+  padding-right: 7%;
+  width: 100%;
+  height: 150px;
+  /* position: sticky;
+  top: 0;
+  overflow: hidden; */
+}
+#bigDivForNavbar > div {
+  flex: 1; /* Allow child divs to grow */
+  color: white; /* Example text color */
+  padding: 10px; /* Example padding */
+}
+#btnsearch {
+  background-color: #f37021;
+  border: none;
+  border-radius: 2px;
+  border-left: 0;
+}
+#sidelist {
+  display: none;
+  background-color: rgb(156, 156, 214);
+  display: none;
+  flex-direction: row;
+  margin-block: 10%;
+}
+#divforEndjustfy {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  margin: 2%;
+  justify-content: end;
+}
+#showsubcategories {
+  background-color: white;
+  border: solid 2px;
+  height: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transition: 0.5s;
+  position: sticky;
+    top: 0;
+    background-color: white; /* Default background */
+    transition: background-color 0.3s; /* Smooth transition */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  
+}
+#showsubcategories > a {
+  color: black;
+}
+#showsubcategories > a:hover {
+  color: #f37021;
+}
+
+a {
+  font-weight: bold;
+  font-size: small;
+  height: 100%;
+  padding: 0 15px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+#listbars {
+  display: none;
+}
+#searchandButton {
+  display: flex;
+  flex-direction: row;
+  width: 45%;
+}
+@media (max-width: 820px) {
+  #responsiveSearchBarsCart {
+    justify-content: end;
+  }
+  #listbars {
+    display: block;
+  }
+  .hiddenDiv {
+    display: flex;
+  }
+  #nav {
+    display: none;
+  }
+  #sidelist {
+    display: block;
+  }
+  #searchandButton {
+    display: none;
+  }
+
+  #smallnav {
+    display: none;
+  }
+  #bigDivForNavbar {
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+  }
+  .cart-container {
+    justify-content: end;
+  }
+}
+#sidelist {
+  width: 100%;
+}
+
+#sidelist div {
+  transition: background-color 0.3s;
+}
+
+#sidelist div:hover {
+  background-color: #f0f0f0;
+}
+.hiddenDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 30%;
+}
+
+#categoryList {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-width: 550px;
+  width: 200%;
+}
+
+#categoryList ul {
+  margin: 0;
+  padding: 0;
+}
+
+#categoryList li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+#categoryList li:hover {
+  background-color: #f7f7f7;
+}
+
+#categoryList a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+#categoryList a:hover {
+  color: #f37021;
+}
+
+#categoryList ul ul {
+  margin-top: 5px;
+  border-left: 2px solid #f37021;
+  padding-left: 10px;
+}
+
+#categoryList ul ul li {
+  padding: 11px;
+  border-bottom: none;
+  font-size: 0.9em;
+}
+
+#categoryList ul ul li:hover {
+  background-color: #fafafa;
+}
+
+.cursor {
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  #sidelist {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  #showsubcategories {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .hiddenDiv {
+    display: none;
+  }
+}
+#nav {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+#cartIcon{
+ display: none;
+ margin-top: 7px;
+}

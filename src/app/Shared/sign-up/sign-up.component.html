@@ -1,0 +1,120 @@
+<div style="margin-bottom: 450px">
+  <form (submit)="onSubmit()">
+    <div id="SignupDiv" class="container">
+      <div><h5 id="Head">{{ 'SIGN_UP' | translate }}</h5></div>
+      <div>
+        <h5 style="font-size: x-large; text-align: center">
+          {{ 'LOGIN_WITH_SOCIAL' | translate }}
+        </h5>
+      </div>
+      <div class="text-center mb-3">
+        <a href="#"> <img style="width: 90px" src="/img/facelogo.png" /></a>
+        <a href="#"> <img style="width: 80px" src="/img/googlelogo.png" /></a>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <div>
+            <span style="margin: 7px; color: #bbb5b5">{{ 'FIRST_NAME' | translate }}</span>
+            <label style="color: red">*</label>
+          </div>
+          <input
+            name="firstName"
+            placeholder="{{ 'FIRST_NAME' | translate }}..."
+            type="text"
+            class="inputSignUp form-control"
+            [(ngModel)]="user.firstName"
+          />
+          <label *ngIf="user.firstName==''  && submitted" style="color: red">First Name is Required</label>
+
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div>
+            <span style="margin: 7px; color: #bbb5b5">{{ 'LAST_NAME' | translate }}</span>
+            <label style="color: red">*</label>
+          </div>
+          <input
+            name="lastName"
+            placeholder="{{ 'LAST_NAME' | translate }}..."
+            type="text"
+            class="inputSignUp form-control"
+            [(ngModel)]="user.lastName"
+          />
+          <label *ngIf="user.lastName==''  && submitted" style="color: red">Last Name is Required</label>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <span style="margin: 7px; color: #bbb5b5">{{ 'EMAIL' | translate }}</span>
+          <label style="color: red">*</label>
+          <input
+            name="email"
+            placeholder="{{ 'EMAIL' | translate }}..."
+            type="email"
+            required
+            class="inputSignUp form-control"
+            [(ngModel)]="user.email"
+          />
+          <label *ngIf="user.email==''  && submitted" style="color: red">Email is Required</label>
+          <label *ngIf="emailNotVaild" style="color: red">Email Not Vaild</label>
+          <span style="color: red;" *ngIf="alreadyExists">email already exists</span>
+        </div>
+
+        <div class="col-sm-6 mb-3">
+          <span style="margin: 7px; color: #bbb5b5">{{ 'PHONE_NUMBER' | translate }}</span>
+          <label style="color: red">*</label>
+          <input
+            name="phoneNumber"
+            placeholder="{{ 'PHONE_NUMBER' | translate }}"
+            type="number"
+            class="inputSignUp form-control"
+            [(ngModel)]="user.phoneNumber"
+          />
+          <label *ngIf="user.phoneNumber==''  && submitted" style="color: red">Phone Number is Required</label>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <span style="margin: 7px; color: #bbb5b5">{{ 'PASSWORD' | translate }}</span>
+          <label style="color: red">*</label>
+          <input
+            name="password"
+            placeholder="{{ 'PASSWORD' | translate }}"
+            type="password"
+            class="inputSignUp form-control"
+            [(ngModel)]="user.password"
+          />
+          <label *ngIf="user.password==''  && submitted" style="color: red">Password is Required</label>
+          <label *ngIf="passwordShort  && submitted" style="color: red">Passwords must be at least 8 characters</label>
+
+        </div>
+
+        <div class="col-sm-6 mb-3">
+          <span style="margin: 7px; color: #bbb5b5">{{ 'CONFIRM_PASSWORD' | translate }}</span>
+          <label style="color: red">*</label>
+          <input
+            name="confirmPassword"
+            placeholder="{{ 'CONFIRM_PASSWORD' | translate }}"
+            type="password"
+            class="inputSignUp form-control"
+            [(ngModel)]="user.confirmPassword"
+          />
+            <label *ngIf="user.confirmPassword==''  && submitted" style="color: red">Confirm Password is Required</label>
+            <label *ngIf="passwordNotMatch" style="color: red">Passwords do not match</label>
+        </div>
+        <!-- <div *ngIf="passwordNotMatch" class="col-sm-6 mb-3">
+          <label style="color: red">Passwords do not match</label>
+        </div> -->
+      </div>
+
+      <div class="mt-3 text-center">
+        <button id="btnlogin" type="submit" class="btn btn-primary" style="width: 100px;">{{ 'SIGN_UP' | translate }}</button>
+        <a [routerLink]="['/Login']" class="btn btn-link">{{ 'ALREADY_HAVE_ACCOUNT' | translate }}</a>
+      </div>
+    </div>
+  </form>
+</div>

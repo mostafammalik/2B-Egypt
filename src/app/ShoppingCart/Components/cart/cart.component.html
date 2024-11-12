@@ -1,0 +1,189 @@
+<div style="background-color: white;" class="cart-container">
+  <h5 style="color: #FF662B;margin-left: 35px;">{{ "shopping cart" | translate }}</h5>
+  <div *ngIf="cartItems.length > 0">
+    <div class="row">
+      <div class="col-12 col-lg-9 mb-4">
+        <table class="table">
+          <thead >
+            <tr class="fonts">
+              <th style="color: #777777d5;text-align: start;" scope="col">{{ "item" | translate }}</th>
+              <th style="color: #777777d5;" scope="col">{{ "price" | translate }}</th>
+              <th style="color: #777777d5;" scope="col">{{ "qty" | translate }}</th>
+              <th style="color: #777777d5;" scope="col">{{ "subtotal" | translate }}</th>
+              <!-- <th scope="col">{{ "action" | translate }}</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartItems;">
+              <td style="width: 50%;">
+                <div style="display: flex;">
+                  <img src="{{ item.image }}" alt="Image description" (click)="SelectedProductId(item.productId)"
+                    style="width: 150px; height: 150px; object-fit: cover; border: solid .1px silver; border-radius: 7px;" />
+                  <span style="font-weight: bold;" class="productName">
+                    {{getLocalizedProductName(item)}}
+        
+                  </span>
+                </div>
+              </td>
+              <td style="font-weight: bold;" >{{ item.price | currency }}</td>
+              <td>
+                <div class="quantity">
+                  <i  class="fa fa-angle-up" (click)="item.quantity < item.stock ? increaseQuantity(item) : ''"></i>
+                  {{item.quantity}}
+                  <i class="fa fa-angle-down" [style.cursor]="item.quantity === 1 ? 'auto' : 'pointer'"
+                    (click)="decreaseQuantity(item)"></i>
+                </div>
+                <span *ngIf="item.quantity >= item.stock" style="color: red; font-size: 0.9rem;">
+                  {{ "Exceeded available stock quantity. Maximum available is " + item.stock | translate }}
+                </span>
+              </td>
+              <td style="position: relative; ">
+                <div style="font-weight: bold;">
+
+                  {{ item.price * item.quantity |currency}}
+                </div>
+                <a title="Remove" (click)="removeItem(item.productId)"
+                  style="color: #FF662B; cursor: pointer; text-decoration: none;position: absolute; top: 0;right : 0 ; margin-right: 30px;margin-top: 10px;"
+                  class="action action-delete">X</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="col-12 col-lg-3">
+        <div class="card p-3 border-secondary">
+          <div class="card-body">
+            <h3 class="card-title mb-3">{{ "Summary" | translate }}</h3>
+          
+            <hr>
+            <div class="d-flex justify-content-between">
+              <h5>{{ "Order Total" | translate }}</h5>
+              <h5>{{ subTotal | currency }}</h5>
+            </div>
+            <button class="Go-To-Checkout" routerLink="/shipping" style="background-color: #FF662B; color: #f9f9f9;border-radius: 5px; height:40px;">
+              {{ "GO TO CHECKOUT" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="cart-footer mt-4 text-right">
+      <button style="background-color: #FF662B" (click)="clearCart()" class="btn btn-danger">
+        {{ "Clear Cart" | translate }}
+      </button>
+    </div>
+  </div>
+  
+  <div *ngIf="cartItems.length == 0" class="text-center mt-5">
+    <p>{{ "You have no items in your shopping cart" | translate }}</p>
+    <p>
+      {{ "Click" | translate }}
+      <a  class="clickHere" routerLink="/products">{{ "here" | translate }}</a>
+      {{ "to continue shopping" | translate }}
+    </p>
+  </div>
+  
+</div>
+  <!-- <div  *ngIf="cartItems.length == 0">
+    <p  ><span routerLink="/products" class="clickHere" >{{ 'continue_shopping' | translate }}</span> </p>
+  </div> -->
+
+
+
+
+
+
+<style>
+  .table {
+    vertical-align: middle;
+    text-align: center;
+
+  }
+
+  .table tbody tr td {
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .imageItem {
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .productName {
+    margin-left: 10px;
+    padding: 2px;
+  }
+
+  .quantity {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fa-angle-up,
+  .fa-angle-down {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .cart-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .item-details {
+    flex: 1;
+  }
+
+  .remove-btn {
+    background-color: orangered;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .clear-cart-btn,.Go-To-Checkout {
+    background-color: orangered;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .clear-cart-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .clickHere {
+    cursor: pointer;
+    color: #f0ad4e;
+  }
+</style>
